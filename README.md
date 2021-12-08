@@ -9,18 +9,19 @@
 | email              | string | null: false |
 | encrypted_password | string | null: false |
 | furigana           | string | null: false |
+| last_name          | string | null: false |
+| birthday           | string | null: false unique: true|
+
 
 ### Association
 
 - has_many :image informations
 - has_many :purchase
-- has_many :shipping
 
-<!-- image informationテーブル   -->
+<!-- image_informationテーブル   -->
 
 | Column             | Type   | Options     |
 |--------------------|--------|-------------|
-| image              | string | null: false |
 | image_name         | text   | null: false |
 | image_explanation  | text   | null: false |
 | category           | string | null: false |
@@ -41,7 +42,10 @@
 
 | Column             | Type   | Options     |
 |--------------------|--------|-------------|
-| credit             | integer| null: false |
+| postal             | string | null: false |
+| municipality       | string | null: false |
+| address            | string | null: false |
+| building           | string |
 | user               | references | null: false foreign_key: true |
 | image information  | references | null: false foreign_key: true |
 
@@ -56,15 +60,11 @@
 | Column             | Type   | Options     |
 |--------------------|--------|-------------|
 | postal             | string | null: false |
-| prefectures        | string | null: false |
 | municipality       | string | null: false |
 | address            | string | null: false |
-| building           | string | null: false |
+| building           | string |
 | phone              | string | null: false |
-| user               | references | null: false foreign_key: true |
 
 ### Association
 
-- belongs_to :user
-- belongs_to :image information
 - belongs_to :purchase
