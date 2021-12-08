@@ -1,61 +1,57 @@
 # README
 
-<!-- userテーブル   -->
+<!-- usersテーブル   -->
 
-| Column             | Type   | Options    |
+| Column             | Type   | Options     |
 |--------------------|--------|-------------|
 | nickname           | string | null: false |
 | name               | string | null: false |
-| email              | string | null: false |
+| email              | string | null: false, unique: true|
 | encrypted_password | string | null: false |
-| furigana           | string | null: false |
+| furigana_name      | string | null: false |
+| furigana_last_name | string | null: false |
 | last_name          | string | null: false |
-| birthday           | string | null: false unique: true|
+| birthday           | integer | null: false |
 
 
 ### Association
 
-- has_many :image informations
-- has_many :purchase
+- has_many :image_informations
+- has_many :purchases
 
-<!-- image_informationテーブル   -->
+<!-- image_informationsテーブル   -->
 
 | Column             | Type   | Options     |
 |--------------------|--------|-------------|
 | image_name         | text   | null: false |
 | image_explanation  | text   | null: false |
-| category           | string | null: false |
-| status             | string | null: false |
-| delivery           | string | null: false |
-| area               | string | null: false |
-| days               | string | null: false |
+| category           | integer | null: false |
+| status             | integer | null: false |
+| delivery           | integer | null: false |
+| area               | integer | null: false |
+| date               | integer | null: false |
 | price              | integer| null: false |
-| user               | references | null: false foreign_key: true |
+| user               | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user
-- has_one    :purchase
-- has_one    :shipping
+- belongs_to :users
+- has_one    :purchases
 
-<!-- purchaseテーブル   -->
+<!-- purchasesテーブル   -->
 
 | Column             | Type   | Options     |
 |--------------------|--------|-------------|
-| postal             | string | null: false |
-| municipality       | string | null: false |
-| address            | string | null: false |
-| building           | string |
-| user               | references | null: false foreign_key: true |
-| image information  | references | null: false foreign_key: true |
+| user               | references | null: false, foreign_key: true |
+| image_information  | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user
-- belongs_to :image information
-- has_one    :shipping
+- belongs_to :users
+- belongs_to :image_informations
+- has_one    :shippings
 
-<!-- shippingテーブル   -->
+<!-- shippingsテーブル   -->
 
 | Column             | Type   | Options     |
 |--------------------|--------|-------------|
@@ -64,7 +60,9 @@
 | address            | string | null: false |
 | building           | string |
 | phone              | string | null: false |
+| image_information  | references | null: false, foreign_key: true |
+
 
 ### Association
 
-- belongs_to :purchase
+- belongs_to :purchases
