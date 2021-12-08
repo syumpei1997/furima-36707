@@ -1,70 +1,24 @@
 # README
 
-<!-- userテーブル   -->
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-| Column             | Type   | Options    |
-|--------------------|--------|-------------|
-| nickname           | string | null: false |
-| name               | string | null: false |
-| email              | string | null: false |
-| encrypted_password | string | null: false |
-| furigana           | string | null: false |
+Things you may want to cover:
 
-### Association
+* Ruby version
 
-- has_many :image informations
-- has_many :purchase
-- has_many :shipping
+* System dependencies
 
-<!-- image informationテーブル   -->
+* Configuration
 
-| Column             | Type   | Options     |
-|--------------------|--------|-------------|
-| image              | string | null: false |
-| image_name         | text   | null: false |
-| image_explanation  | text   | null: false |
-| category           | string | null: false |
-| status             | string | null: false |
-| delivery           | string | null: false |
-| area               | string | null: false |
-| days               | string | null: false |
-| price              | integer| null: false |
-| user               | references | null: false foreign_key: true |
+* Database creation
 
-### Association
+* Database initialization
 
-- belongs_to :user
-- has_one    :purchase
-- has_one    :shipping
+* How to run the test suite
 
-<!-- purchaseテーブル   -->
+* Services (job queues, cache servers, search engines, etc.)
 
-| Column             | Type   | Options     |
-|--------------------|--------|-------------|
-| credit             | integer| null: false |
-| user               | references | null: false foreign_key: true |
-| image information  | references | null: false foreign_key: true |
+* Deployment instructions
 
-### Association
-
-- belongs_to :user
-- belongs_to :image information
-- has_one    :shipping
-
-<!-- shippingテーブル   -->
-
-| Column             | Type   | Options     |
-|--------------------|--------|-------------|
-| postal             | string | null: false |
-| prefectures        | string | null: false |
-| municipality       | string | null: false |
-| address            | string | null: false |
-| building           | string | null: false |
-| phone              | string | null: false |
-| user               | references | null: false foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :image information
-- belongs_to :purchase
+* ...
