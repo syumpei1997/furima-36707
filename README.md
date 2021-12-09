@@ -25,12 +25,12 @@
 |--------------------|--------|-------------|
 | image_name         | string | null: false |
 | image_explanation  | text   | null: false |
-| category           | integer | null: false, dafault"11" |
-| status             | integer | null: false, dafault"7"  |
-| delivery           | integer | null: false, dafault"3"  |
-| area               | integer | null: false, dafault"47" |
-| nissuu             | integer | null: false, dafault"4"  |
-| price              | integer| null: false |
+| category_id           | integer | null: false, dafault"11" |
+| status_id             | integer | null: false, dafault"7"  |
+| delivery_id           | integer | null: false, dafault"3"  |
+| area_id               | integer | null: false, dafault"47" |
+| nissuu_id             | integer | null: false, dafault"4"  |
+| price              | integer | null: false |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
