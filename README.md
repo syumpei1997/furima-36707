@@ -23,20 +23,20 @@
 
 | Column             | Type   | Options     |
 |--------------------|--------|-------------|
-| image_name         | text   | null: false |
+| image_name         | string | null: false |
 | image_explanation  | text   | null: false |
-| category           | integer | null: false |
-| status             | integer | null: false |
-| delivery           | integer | null: false |
-| area               | integer | null: false |
-| date               | integer | null: false |
+| category           | integer | null: false,dafault"11" |
+| status             | integer | null: false,dafault"7"  |
+| delivery           | integer | null: false,dafault"3"  |
+| area               | integer | null: false,dafault"47" |
+| delivery_date      | integer | null: false,dafault"4"  |
 | price              | integer| null: false |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :users
-- has_one    :purchases
+- belongs_to :user
+- has_one    :purchase
 
 <!-- purchasesテーブル   -->
 
@@ -47,22 +47,23 @@
 
 ### Association
 
-- belongs_to :users
-- belongs_to :image_informations
-- has_one    :shippings
+- belongs_to :user
+- belongs_to :image_information
+- has_one    :shipping
 
 <!-- shippingsテーブル   -->
 
 | Column             | Type   | Options     |
 |--------------------|--------|-------------|
 | postal             | string | null: false |
+| prefectures        | string | null: false ,dafault"47"|
 | municipality       | string | null: false |
 | address            | string | null: false |
 | building           | string |
 | phone              | string | null: false |
-| image_information  | references | null: false, foreign_key: true |
+| purchase           | references | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to :purchases
+- belongs_to :purchase
