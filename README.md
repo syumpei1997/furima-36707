@@ -25,11 +25,11 @@
 |--------------------|--------|-------------|
 | image_name         | string | null: false |
 | image_explanation  | text   | null: false |
-| category_id           | integer | null: false, dafault"11" |
-| status_id             | integer | null: false, dafault"7"  |
-| delivery_id           | integer | null: false, dafault"3"  |
-| area_id               | integer | null: false, dafault"47" |
-| nissuu_id             | integer | null: false, dafault"4"  |
+| category_id        | integer | null: false, dafault"11" |
+| status_id          | integer | null: false, dafault"7"  |
+| delivery_id        | integer | null: false, dafault"3"  |
+| prefecture_id      | integer | null: false, dafault"47"|
+| nissuu_id          | integer | null: false, dafault"4"  |
 | price              | integer | null: false |
 | user               | references | null: false, foreign_key: true |
 
@@ -56,7 +56,7 @@
 | Column             | Type   | Options     |
 |--------------------|--------|-------------|
 | postal             | string | null: false |
-| prefectures_id     | integer | null: false, dafault"47"|
+| prefecture_id     | integer | null: false, dafault"47"|
 | municipality       | string | null: false |
 | address            | string | null: false |
 | building           | string |
