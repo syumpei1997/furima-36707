@@ -1,24 +1,69 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<!-- usersテーブル   -->
 
-Things you may want to cover:
+| Column             | Type   | Options     |
+|--------------------|--------|-------------|
+| nickname           | string | null: false |
+| email              | string | null: false, unique: true|
+| encrypted_password | string | null: false |
+| furigana_name      | string | null: false |
+| furigana_last_name | string | null: false |
+| name               | string | null: false |
+| last_name          | string | null: false |
+| birthday           | date | null: false |
 
-* Ruby version
 
-* System dependencies
+### Association
 
-* Configuration
+- has_many :image_informations
+- has_many :purchases
 
-* Database creation
+<!-- image_informationsテーブル   -->
 
-* Database initialization
+| Column             | Type   | Options     |
+|--------------------|--------|-------------|
+| image_name         | string | null: false |
+| image_explanation  | text   | null: false |
+| category_id        | integer | null: false, dafault"11" |
+| status_id          | integer | null: false, dafault"7"  |
+| delivery_id        | integer | null: false, dafault"3"  |
+| prefecture_id      | integer | null: false, dafault"47"|
+| nissuu_id          | integer | null: false, dafault"4"  |
+| price              | integer | null: false |
+| user               | references | null: false, foreign_key: true |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_one    :purchase
 
-* Deployment instructions
+<!-- purchasesテーブル   -->
 
-* ...
+| Column             | Type   | Options     |
+|--------------------|--------|-------------|
+| user               | references | null: false, foreign_key: true |
+| image_information  | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :image_information
+- has_one    :shipping
+
+<!-- shippingsテーブル   -->
+
+| Column             | Type   | Options     |
+|--------------------|--------|-------------|
+| postal             | string | null: false |
+| prefecture_id     | integer | null: false, dafault"47"|
+| municipality       | string | null: false |
+| address            | string | null: false |
+| building           | string |
+| phone              | string | null: false |
+| purchase           | references | null: false, foreign_key: true |
+
+
+### Association
+
+- belongs_to :purchase
