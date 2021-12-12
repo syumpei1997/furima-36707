@@ -5,14 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          validates :name, presence: true
+         validates :last_name, presence: true
          validates :nickname, presence: true
          validates :email, presence: true
-         validates :
-         | encrypted_password | string | null: false |
-| furigana_name      | string | null: false |
-| furigana_last_name | string | null: false |
-| name               | string | null: false |
-| last_name          | string | null: false |
-| birthday           | date | null: false |
+         validates :encrypted_password, presence: true
+         validates :furigana_name, presence: true
+         validates :furigana_last_name, presence: true
+         validates :birthday, presence: true
 
 end
