@@ -4,7 +4,11 @@ class UsersController < ApplicationController
   end
 
   def index
-    
+    @furima = Furima.includes(:user)
+  end
+
+  def new
+    @furima = Furima.new
   end
 
   def update
