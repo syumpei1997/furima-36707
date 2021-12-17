@@ -4,10 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         validates :name, presence: true
+         validates :name, presence: true, format: { with: 正規表現 , message: '全角日本語'}
          validates :nickname, presence: true, length: { maximum: 6 }
-         validates :furigana_name, presence: true
-         validates :furigana_last_name, presence: true
-         validates :last_name, presence: true
+         validates :furigana_name, presence: true, format: { with: 正規表現 , message: '全角カタカナ'}
+         validates :furigana_last_name, presence: true, format: { with: 正規表現 , message: '全角カタカナ'}
+         validates :last_name, presence: true, format: { with: 正規表現 , message: '全角日本語'}
          validates :birthday, presence: true
-end
+         validates :encrypted_password, presence: true、format: { with: 正規表現 , message: 'エラーメッセージ'}
