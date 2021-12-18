@@ -6,7 +6,7 @@ FactoryBot.define do
     furigana_last_name    {'test'}
     last_name             {'test'}
     birthday              {'0000'}
-    password              {'000000'}
+    password              {'000aaa'}
     password_confirmation {'password'}
   end
 end

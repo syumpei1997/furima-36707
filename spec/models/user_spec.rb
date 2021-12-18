@@ -21,10 +21,10 @@ RSpec.describe User, type: :model do
     it 'birthdayが空では登録できない' do
       # nicknameが空では登録できないテストコードを記述します
     end
-    it 'passwordが空では登録できない' do
+    it 'passwordが空では登録できない,６文字以上で半角英数字混合の入力でないと登録できない' do
       # nicknameが空では登録できないテストコードを記述します
     end
-    it 'password_confirmationが空では登録できない' do
+    it 'password_confirmationが空では登録できない,passwordと値が一致しないと登録できない' do
       # nicknameが空では登録できないテストコードを記述します
     end
   end
