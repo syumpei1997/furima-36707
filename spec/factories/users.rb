@@ -8,5 +8,6 @@ FactoryBot.define do
     birthday              {'0000'}
     password              {'000aaa'}
     password_confirmation {'password'}
+    email                 {'test@gmail.com'}
   end
 end
