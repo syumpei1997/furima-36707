@@ -1,0 +1,2 @@
+module ImageInformationHelper
+end
