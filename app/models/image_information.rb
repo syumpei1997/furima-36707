@@ -21,7 +21,7 @@ class ImageInformation < ApplicationRecord
   validates :nissuu_id,          numericality: { other_than: 1, message: "can't be blank" }
   validates :price,              presence: true
   validates :price,              :numericality => {:only_integer => true}
-  validates :price,              numericality: { less_than_or_equal_to: 300,greater_than_or_equal_to: 9,999,999 }
+  validates :price,              numericality: { less_than_or_equal_to: 300,greater_than_or_equal_to: 9_999_999 }
   validates :price,              format: { with: /\A[0-9]+\z/ , message: '半角数字'}
  
 

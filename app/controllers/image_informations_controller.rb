@@ -1,20 +1,18 @@
-class ImageInformationController < ApplicationController
-  
+class ImageInformationsController < ApplicationController
   def index
+    @image_informations = ImageInformation.includes(:user)
   end
 
-  # def create
-  #   @image_information = Image_information.new(image_infomation_params)
-  #   if @image_information.save
-  #       render 'index'
-  #   else
-  #       render 'new'
-  #   end
-  # end
+  def new
+    @image_information = ImageInformation.new
+  end
 
-  private
-
-  def message_params
-    params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
+  def create
+    @image_information = ImageInformation.new(image_information_params)
+    if @image_information.save
+      redirect_to root_path
+    else
+        render :new
+    end
   end
 end
