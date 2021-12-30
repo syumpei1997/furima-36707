@@ -1,4 +1,4 @@
-class ImageInformation < ActiveHash::Base
+class Nissuu < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
     { id: 2, name: '12日で発送' },

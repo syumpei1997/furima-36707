@@ -15,4 +15,11 @@ class ImageInformationsController < ApplicationController
         render :new
     end
   end
+
+  private
+
+  def image_information_params
+    params.require(:image_information).permit(:image, :image_name, :image_explanation, :price, :category_id, :delivery_id, :nissuu_id, :prefecture_id, :status_id).merge(user_id: current_user.id)
+  end
+
 end
