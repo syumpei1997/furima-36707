@@ -100,17 +100,20 @@
           </div>
           <span class="sell-yen">¥</span>
           <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
-        </div>　
+          <li class="background-red" id="item-price">価格
+        </div>
         <div class="price-content">
           <span>販売手数料 (10%)</span>
           <span>
             <span id='add-tax-price'></span>円
+            <li class="background-red" id="add-tax-price">販売手数料
           </span>
         </div>
         <div class="price-content">
           <span>販売利益</span>
           <span>
             <span id='profit'></span>円
+            <li class="background-red" id="profit">販売利益
         </div>
         </span>
       </div>
