@@ -8,20 +8,21 @@ end
 describe '商品出品' do
   context '出品できる場合' do
     it "imageとimage_nameとimage_explanationとcategory_idとstatus_idとdelivery_idとprefecture_idとnissuu_idとpriceが存在すれば登録できる" do
-      binding.pry
       expect(@image_information).to be_valid
     end
     it "priceが半角数値のみ保存可能" do
+      @image_information.price = '301'
       expect(@image_information).to be_valid
     end
     it "priceが¥300~¥9,999,999の間のみ保存可能" do
+      @image_information.price = '301'
       expect(@image_information).to be_valid
     end
   end
 
   context '新規作成できない場合' do
     it "imageが空では作成できない" do
-      @image_information.image = ''
+      @image_information.image = nil
       @image_information.valid?
       expect(@image_information.errors.full_messages).to include("Image can't be blank")
     end
@@ -64,6 +65,11 @@ describe '商品出品' do
       @image_information.price = ''
       @image_information.valid?
       expect(@image_information.errors.full_messages).to include("Price can't be blank")
+    end
+    it 'ユーザーが紐付いていなければ投稿できない' do
+      @image_information.user = nil
+      @image_information.valid?
+      expect(@image_information.errors.full_messages).to include('User must exist')
     end
   end
  end
