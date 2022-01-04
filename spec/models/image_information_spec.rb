@@ -66,6 +66,21 @@ describe '商品出品' do
       @image_information.valid?
       expect(@image_information.errors.full_messages).to include("Price can't be blank")
     end
+    it "priceが半角数字以外の値が含まれている場合は保存できないこと" do
+      @image_information.price = '３００'
+      @image_information.valid?
+      expect(@image_information.errors.full_messages).to include("Price can't be blank")
+    end
+    it "priceが300未満の値では保存できないこと" do
+      @image_information.price = '200'
+      @image_information.valid?
+      expect(@image_information.errors.full_messages).to include("Price can't be blank")
+    end
+    it "priceが10000000以上の値では保存できないこと" do
+      @image_information.price = '10000001'
+      @image_information.valid?
+      expect(@image_information.errors.full_messages).to include("Price can't be blank")
+    end
     it 'ユーザーが紐付いていなければ投稿できない' do
       @image_information.user = nil
       @image_information.valid?
