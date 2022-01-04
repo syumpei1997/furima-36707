@@ -36,28 +36,28 @@ describe '商品出品' do
       @image_information.valid?
       expect(@image_information.errors.full_messages).to include("Image explanation can't be blank")
     end
-    it "category_idが空では作成できない" do
-      @image_information.category_id = ''
+    it "category_idが1の選択だと作成できない" do
+      @image_information.category_id = '1'
       @image_information.valid?
       expect(@image_information.errors.full_messages).to include("Category can't be blank")
     end
-    it "status_idが空では作成できない" do
-      @image_information.status_id = ''
+    it "status_idが1の選択だと作成できない" do
+      @image_information.status_id = '1'
       @image_information.valid?
       expect(@image_information.errors.full_messages).to include("Status can't be blank")
     end
-    it "delivery_idが空では作成できない" do
-      @image_information.delivery_id = ''
+    it "delivery_idが1の選択だと作成できない" do
+      @image_information.delivery_id = '1'
       @image_information.valid?
       expect(@image_information.errors.full_messages).to include("Delivery can't be blank")
     end
-    it "prefecture_idが空では作成できない" do
-      @image_information.prefecture_id = ''
+    it "prefecture_idが1の選択だと作成できない" do
+      @image_information.prefecture_id = '1'
       @image_information.valid?
       expect(@image_information.errors.full_messages).to include("Prefecture can't be blank")
     end
-    it "nissuu_idが空では作成できない" do
-      @image_information.nissuu_id = ''
+    it "nissuu_idが1の選択だと作成できない" do
+      @image_information.nissuu_id = '1'
       @image_information.valid?
       expect(@image_information.errors.full_messages).to include("Nissuu can't be blank")
     end
