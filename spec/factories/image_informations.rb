@@ -6,7 +6,7 @@ FactoryBot.define do
     category_id          {'2'}
     status_id            {'2'}
     delivery_id          {'2'}
-    prefecture_id        {'1'}
+    prefecture_id        {'2'}
     nissuu_id            {'2'}
     price                {'301'}
     after(:build) do |image_information|
