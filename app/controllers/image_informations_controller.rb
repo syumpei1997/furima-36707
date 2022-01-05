@@ -1,7 +1,7 @@
 class ImageInformationsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
   def index
-    # @image_informations = ImageInformation.includes(:user)
+     @image_informations = ImageInformation.all
   end
 
   def new
