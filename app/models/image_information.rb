@@ -4,8 +4,12 @@ class ImageInformation < ApplicationRecord
   has_one    :purchase
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category, :delivery, :nissuu, :prefecture, :status
-  
+  belongs_to :category
+  belongs_to :delivery
+  belongs_to :nissuu
+  belongs_to :prefecture
+  belongs_to :status
+
   validates :image,              presence: true
   validates :image_name,         presence: true
   validates :image_explanation,  presence: true
