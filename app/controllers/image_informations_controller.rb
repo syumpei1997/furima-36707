@@ -18,6 +18,10 @@ class ImageInformationsController < ApplicationController
     end
   end
 
+  def show
+    @image_information = ImageInformation.find(params[:id])
+  end
+
   private
 
   def image_information_params
