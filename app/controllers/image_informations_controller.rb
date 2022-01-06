@@ -1,8 +1,8 @@
 class ImageInformationsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
-  
+
   def index
-     @image_informations = ImageInformation.all
+     @image_informations = ImageInformation.all.order(created_at: :desc)
   end
 
   def new
