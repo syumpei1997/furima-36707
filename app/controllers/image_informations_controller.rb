@@ -26,6 +26,12 @@ class ImageInformationsController < ApplicationController
     @image_information = ImageInformation.find(params[:id])
   end
 
+  def update
+    @image_information = ImageInformation.find(params[:id])
+    @image_information.update(image_information_params)
+    render :show
+  end
+
   private
 
   def image_information_params
