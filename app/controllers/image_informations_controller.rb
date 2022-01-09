@@ -1,6 +1,6 @@
 class ImageInformationsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
-  before_action :set_image_information, only: [:edit, :show, :update]
+  before_action :set_image_information, only: [:edit, :show, :update, :destroy]
   def index
      @image_informations = ImageInformation.all.order(created_at: :desc)
   end
@@ -33,6 +33,13 @@ class ImageInformationsController < ApplicationController
     else
     render :edit
     end
+  end
+
+  def destroy
+    if current_user != @image_information.user
+      @image_information.destroy
+    end
+    redirect_to root_path
   end
 
   private
