@@ -1,6 +1,6 @@
 class ImageInformationsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
-  before_action :set_image_information, only: [:edit, :show]
+  before_action :set_image_information, only: [:edit, :show, :update]
   def index
      @image_informations = ImageInformation.all.order(created_at: :desc)
   end
@@ -28,7 +28,6 @@ class ImageInformationsController < ApplicationController
   end
 
   def update
-    @image_information = ImageInformation.find(params[:id])
     if @image_information.update(image_information_params)
       redirect_to root_path
     else
