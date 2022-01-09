@@ -37,7 +37,9 @@ class ImageInformationsController < ApplicationController
 
   def destroy
     @image_information.destroy
-    redirect_to root_path
+    if current_user != @image_information.user
+      redirect_to root_path
+    end
   end
 
   private
