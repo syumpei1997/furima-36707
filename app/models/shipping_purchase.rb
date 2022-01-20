@@ -6,6 +6,7 @@ class ShippingPurchase
   validates :postal, presence: true
   validates :postal, format: { with: /\A\d{3}[-]\d{4}\z/ }
   validates :prefecture_id, presence: true
+  validates :prefecture_id,      presence: true,numericality: { other_than: 1, message: "can't be blank" }
   validates :municipality, presence: true
   validates :address, presence: true
   validates :phone, presence: true
