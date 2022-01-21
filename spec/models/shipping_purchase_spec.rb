@@ -6,7 +6,7 @@ RSpec.describe ShippingPurchase, type: :model do
   end
   describe '商品購入機能' do
     context '購入できる場合' do
-      it "postalとprefecture_idとmunicipalityとphoneとaddressが存在すれば購入できる" do
+      it "postalとprefecture_idとmunicipalityとphoneとaddressとtokenが存在すれば購入できる" do
         expect(@shipping_purchase).to be_valid
       end
       it "郵便番号は、「3桁ハイフン4桁」の半角文字列のみ保存可能なこと" do
@@ -48,6 +48,11 @@ RSpec.describe ShippingPurchase, type: :model do
         @shipping_purchase.prefecture_id = '1'
         @shipping_purchase.valid?
         expect(@shipping_purchase.errors.full_messages).to include("Prefecture can't be blank")
+      end
+      it "tokenが空では登録できないこと" do
+        @shipping_purchase.token = nil
+        @shipping_purchase.valid?
+        expect(@shipping_purchase.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
