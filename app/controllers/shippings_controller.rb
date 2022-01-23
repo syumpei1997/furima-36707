@@ -1,9 +1,13 @@
 class ShippingsController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, only: :index
   before_action :set_shipping, only: [:index, :create]
 
   def index
     @shipping_purchase = ShippingPurchase.new
+      if @image_informations.purchase.present? 
+        redirect_to root_path
+      end
+
   end
 
   def create

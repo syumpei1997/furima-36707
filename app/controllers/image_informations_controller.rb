@@ -1,6 +1,7 @@
 class ImageInformationsController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_image_information, only: [:edit, :show, :update, :destroy]
+
   def index
      @image_informations = ImageInformation.all.order(created_at: :desc)
   end
@@ -23,6 +24,9 @@ class ImageInformationsController < ApplicationController
 
   def edit
     if current_user != @image_information.user
+      redirect_to root_path
+    end
+    if @image_information.purchase.present? 
       redirect_to root_path
     end
   end
