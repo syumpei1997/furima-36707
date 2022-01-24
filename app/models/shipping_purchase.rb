@@ -3,8 +3,8 @@ class ShippingPurchase
   attr_accessor :postal, :prefecture_id, :municipality, :address, :building, :phone, :user_id, :image_information_id, :token
 
   with_options presence: true do
-  validate :user_id
-  validate :image_information_id
+  validates :user_id
+  validates :image_information_id
   validates :postal
   validates :postal, format: { with: /\A\d{3}[-]\d{4}\z/ }
   validates :prefecture_id

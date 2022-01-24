@@ -29,7 +29,7 @@
      <%= link_to "商品の編集", edit_image_information_path(@image_information.id), method: :get, class: "item-red-btn" %>
      <p class="or-text">or</p>
      <%= link_to "削除", image_informations_path(@image_information.id), method: :delete, class:"item-destroy" %>
-    <% else %>
+     <% else %>
      <%= link_to "購入画面に進む", image_information_shippings_path(@image_information.id),class:"item-red-btn"%>
      <% end %>
     <% end %>
