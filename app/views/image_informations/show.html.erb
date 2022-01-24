@@ -23,15 +23,13 @@
       </span>
     </div>
 
-  <% if user_signed_in? %>
+  <% if user_signed_in? && @image_information.purchase == nil %>
     <% if current_user == @image_information.user%>
-     <% unless @image_information.purchase.present? %>
      <%= link_to "商品の編集", edit_image_information_path(@image_information.id), method: :get, class: "item-red-btn" %>
      <p class="or-text">or</p>
      <%= link_to "削除", image_informations_path(@image_information.id), method: :delete, class:"item-destroy" %>
-     <% else %>
+      <% else %>
      <%= link_to "購入画面に進む", image_information_shippings_path(@image_information.id),class:"item-red-btn"%>
-     <% end %>
     <% end %>
   <% end %>
 
