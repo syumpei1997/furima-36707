@@ -6,13 +6,13 @@ class ShippingPurchase
   validates :user_id
   validates :image_information_id
   validates :postal
-  validates :postal, format: { with: /\A\d{3}[-]\d{4}\z/ }
+  validates :postal, format: { with: /\A\d{3}[-]\d{4}\z/ }, allow_blank: true
   validates :prefecture_id
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :municipality
   validates :address
   validates :phone
-  validates :phone, format: { with: /\A\d{10,11}\z/ }
+  validates :phone, format: { with: /\A\d{10,11}\z/ }, allow_blank: true
   validates :token
   end
 
