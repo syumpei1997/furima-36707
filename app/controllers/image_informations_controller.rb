@@ -23,10 +23,7 @@ class ImageInformationsController < ApplicationController
   end
 
   def edit
-    if current_user != @image_information.user
-      redirect_to root_path
-    end
-    if @image_information.purchase.present? 
+    if current_user != @image_information.user or @image_information.purchase.present?
       redirect_to root_path
     end
   end
